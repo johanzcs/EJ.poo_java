@@ -4,22 +4,31 @@
  */
 package sistemareserva;
 
-import java.util.Scanner;
+public class Sala {
+    private Asientos asientos;
+    private int reservasRealizadas; // Contador de reservas realizadas
 
-public class Sala extends Reserva {
-    
-    public Sala(int totalAsientos) {
-        super(totalAsientos);
+    public Sala(int cantidadAsientos) {
+        this.asientos = new Asientos(cantidadAsientos);
+        this.reservasRealizadas = 0;
     }
 
-    public void realizarReserva() {
-        Scanner scanner = new Scanner(System.in);
-        if (hayAsientosDisponibles()) {
-            System.out.println("¡Bienvenido al sistema de reservas! Realizando la reserva...");
-            actualizarAsientos();
-        } else {
-            System.out.println("No se puede realizar la reserva, ya no hay asientos disponibles.");
+    public boolean realizarReserva() {
+        if (asientos.hayAsientosDisponibles()) {
+            asientos.reservarAsiento();
+            reservasRealizadas++; // Se incrementa el número de reservas
+            return true;
         }
+        return false;
+    }
+
+    public void mostrarAsientosDisponibles() {
+        System.out.println("Quedan " + asientos.getAsientosDisponibles() + " asientos disponibles.");
+    }
+
+    public void mostrarReservasRealizadas() {
+        System.out.println("Número total de reservas realizadas: " + reservasRealizadas);
     }
 }
+
 

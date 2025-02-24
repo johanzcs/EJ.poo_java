@@ -7,58 +7,54 @@ package sistemareserva;
 import java.util.Scanner;
 
 public class SistemaReserva {
-
- public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
-        
+        Sala sala = new Sala(10); // Sala con 10 asientos
+
         do {
-            System.out.print("Ingrese el nombre del usuario: ");
-            String nombre = scanner.nextLine();
-            System.out.print("Ingrese la edad del usuario: ");
-            int edad = scanner.nextInt();
+            System.out.println("\n******************************************");
+            System.out.println("   Bienvenido al Sistema de Reservas   ");
+            System.out.println("******************************************");
+            System.out.println("1. Realizar reserva");
+            System.out.println("2. Ver historial de reservas");
+            System.out.println("3. Salir");
+            System.out.println("******************************************");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
             scanner.nextLine(); 
-            System.out.print("Ingrese el correo del usuario: ");
-            String correo = scanner.nextLine();
 
-            Persona usuario = new Persona(nombre, edad, correo);
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese el nombre del usuario: ");
+                    String nombre = scanner.nextLine();
+                    System.out.print("Ingrese la edad del usuario: ");
+                    int edad = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Ingrese el correo del usuario: ");
+                    String correo = scanner.nextLine();
 
-            Sala sala = new Sala(10);
+                    Usuario usuario = new Usuario(nombre, edad, correo);
 
-            do {
-                System.out.println("*****************************");
-                System.out.println("Sistema de Reservas de Asientos");
-                System.out.println("1. Realizar reserva");
-                System.out.println("2. Hacer otro ejercicio");
-                System.out.println("3. Salir");
-                System.out.println("*****************************");
-                System.out.print("Seleccione una opción: ");
-                opcion = scanner.nextInt();
-                scanner.nextLine(); 
+                    System.out.println("\nInformación del usuario:");
+                    usuario.mostrarInformacion();
 
-                switch (opcion) {
-                    case 1:
+                    sala.realizarReservaPorUsuario(usuario);
+                    break;
 
-                        System.out.println("Información del usuario:");
-                        usuario.mostrarInformacion();
+                case 2:
+                    sala.mostrarReservasRealizadas();
+                    break;
 
-                        sala.realizarReserva();
-                        break;
-                    case 2:
-                        System.out.println("Realizando otro ejercicio...");
-                        break;
-                    case 3:
+                case 3:
+                    System.out.println("¡Gracias por usar el sistema! Hasta luego.");
+                    break;
 
-                        System.out.println("¡Gracias por usar el sistema! Hasta luego.");
-                        break;
-                    default:
-
-                        System.out.println("Opción no válida. Por favor, intente de nuevo.");
-                        break;
-                }
-            } while (opcion != 3 && opcion != 2); 
-            
-        } while (opcion != 3); 
+                default:
+                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+            }
+        } while (opcion != 3);
     }
 }
+
 

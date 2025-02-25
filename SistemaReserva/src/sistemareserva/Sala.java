@@ -5,33 +5,29 @@
 package sistemareserva;
 
 public class Sala {
+    private String idSala;
+    private String tipoSala;
     private Asientos asientos;
-    private int reservasRealizadas;
+    private String pelicula;
 
-    public Sala(int cantidadAsientos) {
-        this.asientos = new Asientos(cantidadAsientos);
-        this.reservasRealizadas = 0;
+    public Sala(String idSala, String tipoSala, int totalAsientos, String pelicula) {
+        this.idSala = idSala;
+        this.tipoSala = tipoSala;
+        this.asientos = new Asientos(totalAsientos);
+        this.pelicula = pelicula;
     }
 
     public boolean realizarReserva() {
-        if (asientos.hayAsientosDisponibles()) {
-            asientos.reservarAsiento();
-            reservasRealizadas++;
-            System.out.println("Reserva exitosa. Asientos restantes: " + asientos.getAsientosDisponibles());
-            return true;
-        }
-        System.out.println("No hay asientos disponibles.");
-        return false;
+        return asientos.reservarAsiento();
     }
 
-    public void mostrarAsientosDisponibles() {
-        System.out.println("Quedan " + asientos.getAsientosDisponibles() + " asientos disponibles.");
-    }
-
-    public void mostrarReservasRealizadas() {
-        System.out.println("Número total de reservas realizadas: " + reservasRealizadas);
+    public void mostrarEstado() {
+        System.out.println("\nSala: " + idSala + " (" + tipoSala + ")");
+        System.out.println("Película en proyección: " + pelicula);
+        System.out.println("Asientos disponibles: " + asientos.getAsientosDisponibles());
     }
 }
+
 
 
 

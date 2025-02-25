@@ -4,28 +4,38 @@
  */
 package sistemareserva;
 
-
 public class Persona {
     private String nombre;
-    private int edad;
-    private String correo;
+    private String apellido;
+    private String id;
 
-    public Persona(String nombre, int edad, String correo) {
+    public Persona(String nombre, String apellido, String id) {
         this.nombre = nombre;
-        this.edad = edad;
-        this.correo = correo;
+        this.apellido = apellido;
+        this.id = id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void mostrarInformacion() {
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void imprimirDatos() {
         System.out.println("Nombre: " + nombre);
-        System.out.println("Edad: " + edad);
-        System.out.println("Correo: " + correo);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("Cédula: " + id);
     }
 }
+
+
+
 
 
 

@@ -13,13 +13,14 @@ public class Asientos {
         this.asientosDisponibles = cantidad;
     }
 
-    public boolean hayAsientosDisponibles() {
-        return asientosDisponibles > 0;
-    }
-
-    public void reservarAsiento() {
+    public boolean reservarAsiento() {
         if (asientosDisponibles > 0) {
             asientosDisponibles--;
+            System.out.println("Reserva realizada con éxito. Asientos restantes: " + asientosDisponibles);
+            return true;
+        } else {
+            System.out.println("No hay asientos disponibles.");
+            return false;
         }
     }
 
@@ -27,6 +28,7 @@ public class Asientos {
         return asientosDisponibles;
     }
 }
+
 
 
 

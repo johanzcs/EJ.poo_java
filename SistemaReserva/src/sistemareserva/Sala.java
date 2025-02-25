@@ -6,7 +6,7 @@ package sistemareserva;
 
 public class Sala {
     private Asientos asientos;
-    private int reservasRealizadas; // Contador de reservas realizadas
+    private int reservasRealizadas;
 
     public Sala(int cantidadAsientos) {
         this.asientos = new Asientos(cantidadAsientos);
@@ -16,9 +16,11 @@ public class Sala {
     public boolean realizarReserva() {
         if (asientos.hayAsientosDisponibles()) {
             asientos.reservarAsiento();
-            reservasRealizadas++; // Se incrementa el número de reservas
+            reservasRealizadas++;
+            System.out.println("Reserva exitosa. Asientos restantes: " + asientos.getAsientosDisponibles());
             return true;
         }
+        System.out.println("No hay asientos disponibles.");
         return false;
     }
 
@@ -30,5 +32,7 @@ public class Sala {
         System.out.println("Número total de reservas realizadas: " + reservasRealizadas);
     }
 }
+
+
 
 

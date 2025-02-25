@@ -4,15 +4,20 @@
  */
 package sistemareserva;
 
+
 public class Persona {
-    protected String nombre;
-    protected int edad;
-    protected String correo;
+    private String nombre;
+    private int edad;
+    private String correo;
 
     public Persona(String nombre, int edad, String correo) {
         this.nombre = nombre;
         this.edad = edad;
         this.correo = correo;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void mostrarInformacion() {
@@ -21,5 +26,8 @@ public class Persona {
         System.out.println("Correo: " + correo);
     }
 }
+
+
+
 
 

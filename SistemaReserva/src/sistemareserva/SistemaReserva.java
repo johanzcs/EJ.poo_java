@@ -10,7 +10,7 @@ public class SistemaReserva {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
-        Sala sala = new Sala(10); // Sala con 10 asientos
+        Sala sala = new Sala(90); 
 
         do {
             System.out.println("\n******************************************");
@@ -30,16 +30,15 @@ public class SistemaReserva {
                     String nombre = scanner.nextLine();
                     System.out.print("Ingrese la edad del usuario: ");
                     int edad = scanner.nextInt();
-                    scanner.nextLine();
+                    scanner.nextLine(); 
                     System.out.print("Ingrese el correo del usuario: ");
                     String correo = scanner.nextLine();
 
                     Usuario usuario = new Usuario(nombre, edad, correo);
-
                     System.out.println("\nInformación del usuario:");
                     usuario.mostrarInformacion();
+                    usuario.hacerReserva(sala); 
 
-                    sala.realizarReservaPorUsuario(usuario);
                     break;
 
                 case 2:
@@ -54,7 +53,12 @@ public class SistemaReserva {
                     System.out.println("Opción no válida. Por favor, intente de nuevo.");
             }
         } while (opcion != 3);
+
+        scanner.close(); 
     }
 }
+
+
+
 
 

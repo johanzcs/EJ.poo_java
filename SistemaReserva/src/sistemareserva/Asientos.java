@@ -8,9 +8,9 @@ public class Asientos {
     private int totalAsientos;
     private int asientosDisponibles;
 
-    public Asientos(int totalAsientos) {
-        this.totalAsientos = totalAsientos;
-        this.asientosDisponibles = totalAsientos;
+    public Asientos(int cantidad) {
+        this.totalAsientos = cantidad;
+        this.asientosDisponibles = cantidad;
     }
 
     public boolean hayAsientosDisponibles() {
@@ -18,11 +18,8 @@ public class Asientos {
     }
 
     public void reservarAsiento() {
-        if (hayAsientosDisponibles()) {
+        if (asientosDisponibles > 0) {
             asientosDisponibles--;
-            System.out.println("Reserva exitosa. Asientos restantes: " + asientosDisponibles);
-        } else {
-            System.out.println("No hay asientos disponibles.");
         }
     }
 
@@ -30,4 +27,6 @@ public class Asientos {
         return asientosDisponibles;
     }
 }
+
+
 

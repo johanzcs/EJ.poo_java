@@ -7,10 +7,9 @@ package sistemareserva;
 public class Usuario extends Persona {
     private int numeroReservas;
 
-    // Constructor corregido
     public Usuario(String nombre, int edad, String correo) {
-        super(nombre, edad, correo);  // Llama al constructor de Persona
-        this.numeroReservas = 0;  // Inicializa el número de reservas en 0
+        super(nombre, edad, correo);
+        this.numeroReservas = 0;
     }
 
     public int getNumeroReservas() {
@@ -22,8 +21,8 @@ public class Usuario extends Persona {
     }
 
     public boolean hacerReserva(Sala sala) {
-        if (numeroReservas < 3) {  // Máximo 3 reservas por usuario
-            if (sala.realizarReserva()) {
+        if (numeroReservas < 3) { 
+            if (sala.realizarReserva()) { 
                 numeroReservas++;
                 System.out.println("Reserva realizada con éxito.");
                 return true;
@@ -37,12 +36,12 @@ public class Usuario extends Persona {
         }
     }
 
-    // Método para mostrar la información del usuario
     public void mostrarInformacion() {
         super.mostrarInformacion();
         System.out.println("Número de reservas realizadas: " + numeroReservas);
     }
 }
+
 
    
 
